@@ -1,0 +1,29 @@
+.pokemon-details__container ul {
+  column-count: 1;
+}
+
+.pokemon-details__image-container {
+  border: 1px solid black;
+  display: inline-block;
+  font-weight: bold;
+  margin: 8px;
+  padding: 4px;
+  text-align: center;
+}
+
+.pokemon-details__image-container>img {
+  display: block;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 360px) {
+  .pokemon-details__container ul {
+    column-count: 2;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .pokemon-details__container ul {
+    column-count: 3;
+  }
+}
