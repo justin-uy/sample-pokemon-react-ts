@@ -1,4 +1,4 @@
-import type { PokemonListApiPayload, PokemonListItemApiPayload } from '../types/ApiResponseTypes';
+import { PokemonListItemApiPayload } from '../types/ApiResponseTypes';
 
 import { useEffect, useReducer, MouseEventHandler, MouseEvent, Dispatch } from 'react';
 import PokemonListItem from './PokemonListItem';
@@ -76,22 +76,22 @@ const onMorePokemonClick = (url: string, dispatch: Dispatch<Action>): MouseEvent
   await fetchPokemon(url, dispatch);
 };
 
-const useEffectCallback = (url: string, totalPokemon: number, dispatch: Dispatch<Action>) => () => {
-  // currently navigating to and this view will keep stale pokemonDict state, which makes the UI janky
-  // 
-  // Remove this if/when this is updated to properly preserve pokedex view between navigations
-  dispatch({
-    type: ActionType.CLEAR_POKEMON_FROM_STALE_STATE,
-  });
-  fetchPokemon(url, dispatch);
-}
-
 export default function Pokedex() {
   const [{ url, pokemonDict, isFetchingPokemon }, dispatch] = useReducer(reducer, initialState);
 
   const totalPokemon = Object.keys(pokemonDict).length;
   // Fetch initial set of pokemon on load
-  useEffect(useEffectCallback(url, totalPokemon, dispatch), []);
+  useEffect(() => {
+    // currently navigating to and this view will keep stale pokemonDict state, which makes the UI janky
+    // 
+    // Remove this if/when this is updated to properly preserve pokedex view between navigations
+    dispatch({
+      type: ActionType.CLEAR_POKEMON_FROM_STALE_STATE,
+    });
+    fetchPokemon(url, dispatch);
+    // Intentionally include provide empty dependency array because we only want it to run on initial page load
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div>
@@ -109,7 +109,7 @@ export default function Pokedex() {
       </div>
       <h2>Need more Pokemon?</h2>
       <div>
-        {/* disabled while fetching in case of slow network, we don't want to re-fetch the same url */}
+        {/* disabled while fetching in case of slow network, we don't want to re-fetch the same url of re-clicking */}
         <button type="button" disabled={isFetchingPokemon} onClick={onMorePokemonClick(url, dispatch)}>Get More Pokemon!</button>
       </div>
     </div>

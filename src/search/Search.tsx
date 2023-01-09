@@ -58,6 +58,8 @@ export default function Search() {
     return () => {
       window.removeEventListener('popstate', onPopStateCallback, true);
     };
+    // Intentionally include provide empty dependency array because we only want it to run on initial page load
+    // eslint-disable-next-line
   }, []);
 
   return (

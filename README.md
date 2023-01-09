@@ -1,6 +1,8 @@
 # Getting Started with Sample Pokemon App
 Example app to get a refresh with React and front-end development
 - Demonstrate some industry engineering practices
+- Get reacquainted with modern React and TypeScript
+- Built on top of PokeApi
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

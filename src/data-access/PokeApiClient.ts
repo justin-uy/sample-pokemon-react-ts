@@ -1,4 +1,4 @@
-import { PokemonListApiPayload, PokemonDetailsApiPayload, PokemonListItemApiPayload } from "../types/ApiResponseTypes";
+import { PokemonListApiPayload, PokemonDetailsApiPayload } from "../types/ApiResponseTypes";
 import Pokemon from "../common/Pokemon";
 import SimpleCache, { CacheType } from "./SimpleCache";
 

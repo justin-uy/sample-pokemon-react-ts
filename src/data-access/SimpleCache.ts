@@ -84,7 +84,7 @@ export default class SimpleCache<T> {
     let cachedValue: Nullable<T> = null;
     switch (this.type) {
       case CacheType.IN_MEMORY:
-        cachedValue = this.data && this.data[key] || null;
+        cachedValue = (this.data && this.data[key]) || null;
         break;
       case CacheType.LOCAL_STORAGE:
         cachedValue = this.#getItemFromStorage(window.localStorage, key);
