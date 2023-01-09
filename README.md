@@ -33,6 +33,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [ ] Error messages
 - [ ] Input validation in typeahead before fetch requests when input is clearly invalid
 - [ ] Properly preserve pokedex view between navigations
+- [ ] Add analytics
 
 ## Available Scripts
 

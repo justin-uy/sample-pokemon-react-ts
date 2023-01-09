@@ -9,7 +9,7 @@ enum Location {
   POKEDEX = '#pokedex',
 }
 
-const DEFAULT_LOCATION = Location.SEARCH
+const DEFAULT_LOCATION = Location.SEARCH;
 
 const headerItems = [
   {

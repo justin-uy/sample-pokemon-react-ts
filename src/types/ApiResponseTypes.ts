@@ -21,4 +21,5 @@ export interface PokemonDetailsApiPayload {
   types: Array<PokemonDetailsTypeApiPayload>,
   moves: Array<{ move: { name: string } }>,
   sprites: ImageSet,
+  height: number,
 }

@@ -14,10 +14,14 @@ export default function PokemonDetails(props: Props) {
     <div className="pokemon-details__container">
       {
         pokemon.images && pokemon.images.map(value =>
-          <div className="pokemon-details__image-container" key={value.description}><img src={value.url} alt={`${pokemon.name} - ${value.description}`} /> {value.description}</div>)
+          <div className="pokemon-details__image-container" key={value.description}>
+            <img src={value.url} alt={`${pokemon.name} - ${value.description}`} /> {value.description}
+          </div>
+        )
       }
       {/* Check if fields exist/are not empty. These fields only exist after details have been fetched */}
       {pokemon.id && <div>ID: {pokemon.id}</div>}
+      {pokemon.height && <div>Height: {pokemon.height}</div>}
       {pokemon.types && <div>Types: {pokemon.types.join(', ')}</div>}
       {
         pokemon.moves &&

@@ -5,6 +5,8 @@ import PokemonListItem from './PokemonListItem';
 import PokeApiClient from '../data-access/PokeApiClient';
 import Pokemon from '../common/Pokemon';
 
+const POKEMON_FETCH_LIMIT = 15;
+
 enum ActionType {
   HANDLE_POKEMON_LIST_RESPONSE = 'HANDLE_POKEMON_LIST_RESPONSE',
   UPDATE_POKEMON_DETAILS = 'UPDATE_POKEMON_DETAILS',
@@ -22,7 +24,7 @@ type State = {
 const initialState: State = {
   isFetchingPokemon: false,
   pokemonDict: {},
-  url: 'https://pokeapi.co/api/v2/pokemon?limit=10&offset=0',
+  url: `https://pokeapi.co/api/v2/pokemon?limit=${POKEMON_FETCH_LIMIT}&offset=0`,
 };
 
 interface Action {

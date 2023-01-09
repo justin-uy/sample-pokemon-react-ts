@@ -9,6 +9,7 @@ export default class Pokemon {
   types?: Array<string>;
   moves?: Array<string>;
   images: Array<{ description: string, url: string }> = [];
+  height?: number;
 
   // See: https://www.typescriptlang.org/docs/handbook/advanced-types.html#using-type-predicates
   // 
@@ -34,6 +35,8 @@ export default class Pokemon {
       if (apiResponse.sprites) {
         this.appendImageSetToImages(apiResponse.sprites);
       }
+
+      this.height = apiResponse.height;
     }
   }
 
